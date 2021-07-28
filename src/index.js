@@ -1,17 +1,39 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import { Provider } from "react-redux";
+import store from "./store/store";
+import Loader from "./component/loader/loader";
+import {useSelector,useDispatch} from 'react-redux'
+import { clearSignedToken, setSignedToken } from "./component/home/homeSlice";
+import { setLoading } from "./component/loader/loaderSlice";
+function Index(){
+  const isLoading=useSelector(state => state.loader.isLoading)
+  const dispatch=useDispatch()
 
+  React.useEffect(()=>{
+    // dispatch(setLoading({isLoading:true}))
+    const token='naaaaaaaaaaaaaaaaaaaaaaa'
+    // dispatch(setLoading({isLoading:false}))
+
+    if(!token){
+    dispatch(clearSignedToken())
+    }else{
+      dispatch(setSignedToken({token:token}))
+    }
+
+  },[])
+
+  return(
+    <div>
+      {isLoading ?<Loader/>:<App/>}
+    </div>
+  )
+}
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+ 
+    <Provider store={store}>
+      <Index />
+    </Provider>,
+  document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
