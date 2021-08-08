@@ -42,7 +42,7 @@ export default function AppBar() {
           ) : (
             <></>
           )}
-          <Typography variant="h6" style={{flexGrow:1}}>Hi,Ninja</Typography>
+          <Typography variant="h6" style={{flexGrow:1}}>Binary Veda</Typography>
          
           {loggedIn ? (
             <IconButton aria-label="logout" onClick={handleLogout}>
