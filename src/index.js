@@ -26,7 +26,7 @@ function Index(){
 
   return(
     <div>
-      {isLoading ?<Loader/>:<App/>}
+     <App/>
     </div>
   )
 }

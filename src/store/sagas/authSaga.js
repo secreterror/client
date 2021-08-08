@@ -26,6 +26,7 @@ export function* checkUserInDatabase(user){
 export function* doUserLogin({payload}){
     const {userName,password} =payload.user
     try {
+        yield put({type:setLoading.type,isLoading:true})
         const response = yield call(handleLogin,userName,password);
 
         const payload=response.data
@@ -33,11 +34,13 @@ export function* doUserLogin({payload}){
         window.localStorage.setItem('userName',response.data.userName);
 
         yield put({type:setSignedToken.type,payload})
+        yield put({type:setLoading.type,isLoading:false})
         
     }catch (error) {
 
         if(error.response){
             const payload=error.response.data
+            yield put({type:setLoading.type,isLoading:false})
             yield put({type:setLoginError.type,payload})
             console.log(error.response.data)
         }
@@ -49,14 +52,17 @@ export function* doUserSignUp({payload}){
     const payloa=payload
     console.log(payloa)
     try {
+        yield put({type:setLoading.type,isLoading:true})
         const response =yield call(handleSignup,payloa)
         window.localStorage.setItem('token',response.data.token);
         window.localStorage.setItem('userName',response.data.userName);
         const payload=response.data
         yield put({type:setSignedToken.type,payload})
+        yield put({type:setLoading.type,isLoading:false})
     } catch (error) {
         if(error.response){
             const payload=error.response.data
+            yield put({type:setLoading.type,isLoading:false})
             yield put({type:setSignUpError.type,payload})
             console.log(error.response.data)
         }

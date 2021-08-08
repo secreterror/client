@@ -46,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Login({history}) {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.login);
+  const isLoading=useSelector(state => state.loader.isLoading)
   const classes = useStyles();
 
   const handleUserNameChange = (e) => {
@@ -130,8 +131,8 @@ export default function Login({history}) {
               />
             </Grid>
           </Grid>
-          <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
-            Log In
+          <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit} disabled={isLoading}>
+            {isLoading?"Logging In....":"Log In"}
           </Button>
           {/* <Grid container justify="flex-end">
             <Grid item>

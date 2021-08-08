@@ -61,6 +61,7 @@ export default function SignUp() {
   const classes = useStyles();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.signup);
+  const isLoading=useSelector(state => state.loader.isLoading)
 
 
 
@@ -255,8 +256,9 @@ export default function SignUp() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            disabled={isLoading}
           >
-            Sign Up
+            {isLoading?"Signing Up...":"Sign Up"}
           </Button>
           {/* <Grid container justify="flex-end">
             <Grid item>
