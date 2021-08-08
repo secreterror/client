@@ -4,6 +4,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import Login from "../login/Login";
 import SignUp from "../signup/SignUp";
 import {useState} from 'react'
+import {useDispatch} from 'react-redux'
+import {setSignUpError } from '../signup/signUpSlice'
+import { setLoginError } from "../login/loginSlice";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -31,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Welcome() {
   const classes = useStyles();
   const  [login, setlogin] = useState(0)
+  const dispatch=useDispatch()
   return(
     <Container maxWidth="xs" >
       <CssBaseline/>
@@ -41,12 +45,36 @@ export default function Welcome() {
       </Typography>
       <Grid container direction='row' justify='space-between' spacing={2}>
         <Grid xs={12} sm={6}>
-        <Button fullWidth variant='contained' color='primary' disabled={login===1} onClick={()=>setlogin(1)}>
+        <Button fullWidth variant='contained' color='primary' disabled={login===1} onClick={()=>{
+          setlogin(1)
+          dispatch(
+            setSignUpError({
+              error: {
+              firstName:'',
+              lastName:'',
+              userName:'',
+              email:'',
+              agree:'',
+              password:'',
+             },
+            })
+          );
+          }}>
           Log In
         </Button>
         </Grid>
         <Grid xs={12} sm={6}>
-        <Button fullWidth variant='contained' color='secondary' disabled={login===2} onClick={()=>setlogin(2)}>
+        <Button fullWidth variant='contained' color='secondary' disabled={login===2} onClick={()=>{
+          setlogin(2)
+          dispatch(
+            setLoginError({
+              error: {
+                userName: "",
+                password: "",
+             },
+            })
+          );
+          }}>
           Sign Up
         </Button>
         </Grid>
