@@ -1,10 +1,11 @@
 import React from "react";
-import { Box } from "@material-ui/core";
+import { Box, Container } from "@material-ui/core";
 
 export default function About() {
   return (
-   
-    <h1>About</h1>
+    <Container>
+      Hey, I am Yash. Looking forward for the feeback on this assignment. 
+    </Container>
     
   );
 }
