@@ -13,6 +13,9 @@ export default function Home(){
     return(
         <Container>
           Hi,There <br></br>
+          Please also visit the about section for backend deployed link.
+          <br></br>
+          In case of any error please contact me.<br></br>
           You have successfully signedIn.<br></br>
           Thanks.
         </Container>
