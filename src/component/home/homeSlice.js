@@ -4,17 +4,20 @@ export const homeSlice=createSlice({
     name:"home",
     initialState:{
         token:'',
-        signedIn:false
+        signedIn:false,
+        userName:''
     },
     reducers:{
         setSignedToken:(state,action)=>{
             console.log(action.payload)
-            const {token}=action.payload
+            const {token,userName}=action.payload
             state.token=token
             state.signedIn=true;
+            state.userName=userName
         },
         clearSignedToken:(state,action)=>{
             state.token=''
+            state.userName=''
             state.signedIn=false
         }
     }

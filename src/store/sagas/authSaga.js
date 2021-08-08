@@ -30,6 +30,7 @@ export function* doUserLogin({payload}){
 
         const payload=response.data
         window.localStorage.setItem('token',response.data.token);
+        window.localStorage.setItem('userName',response.data.userName);
 
         yield put({type:setSignedToken.type,payload})
         
@@ -50,6 +51,7 @@ export function* doUserSignUp({payload}){
     try {
         const response =yield call(handleSignup,payloa)
         window.localStorage.setItem('token',response.data.token);
+        window.localStorage.setItem('userName',response.data.userName);
         const payload=response.data
         yield put({type:setSignedToken.type,payload})
     } catch (error) {
