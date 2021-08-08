@@ -11,18 +11,18 @@ function Index(){
   const isLoading=useSelector(state => state.loader.isLoading)
   const dispatch=useDispatch()
 
-  React.useEffect(()=>{
-    // dispatch(setLoading({isLoading:true}))
-    const token='naaaaaaaaaaaaaaaaaaaaaaa'
-    // dispatch(setLoading({isLoading:false}))
+  // React.useEffect(()=>{
+  //   // dispatch(setLoading({isLoading:true}))
+  //   const token='naaaaaaaaaaaaaaaaaaaaaaa'
+  //   // dispatch(setLoading({isLoading:false}))
 
-    if(!token){
-    dispatch(clearSignedToken())
-    }else{
-      dispatch(setSignedToken({token:token}))
-    }
+  //   if(!token){
+  //   dispatch(clearSignedToken())
+  //   }else{
+  //     dispatch(setSignedToken({token:token}))
+  //   }
 
-  },[])
+  // },[])
 
   return(
     <div>

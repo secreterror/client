@@ -133,13 +133,13 @@ export default function Login({history}) {
           <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
             Log In
           </Button>
-          <Grid container justify="flex-end">
+          {/* <Grid container justify="flex-end">
             <Grid item>
               <Link href="#" variant="body2">
                 Forgot Password
               </Link>
             </Grid>
-          </Grid>
+          </Grid> */}
         </form>
       </div>
     </Container>

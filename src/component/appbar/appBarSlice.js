@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const appBarSlice = createSlice({
   name: "appBar",
   initialState: {
-    isDrawerOpen: true,
+    isDrawerOpen:false,
   },
   reducers: {
     openDrawer: (state, action) => {

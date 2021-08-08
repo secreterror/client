@@ -3,8 +3,8 @@ import {createSlice} from '@reduxjs/toolkit'
 export const homeSlice=createSlice({
     name:"home",
     initialState:{
-        token:'shhhhhhhhhhhhhhh',
-        signedIn:true
+        token:'',
+        signedIn:false
     },
     reducers:{
         setSignedToken:(state,action)=>{

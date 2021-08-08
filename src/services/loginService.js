@@ -2,7 +2,7 @@ import axios from 'axios'
 export  function handleLogin(userName,password){
     const res= axios.request({
         method:'post',
-        url:'http://localhost:8000/api/auth/login',
+        url:'https://bv-web-api.herokuapp.com/api/auth/login',
         data:{
             userName,
             password

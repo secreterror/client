@@ -10,13 +10,6 @@ export default function Home(){
     const isLoading=useSelector((state)=>state.loader.isLoading)
     const dispatch=useDispatch()
     const [tok,setToken]=React.useState(0)
-    // React.useEffect(()=>{
-    //     const token=window.localStorage.getItem('token');
-    //     if(token!=null){
-    //         setToken(1);
-
-    //     }
-    // },[])
     return(
         <div>
           hey this is home

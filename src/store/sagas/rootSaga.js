@@ -4,5 +4,7 @@ import { setSignUpLastName,handleUserSignup } from '../../component/signup/signU
 import { checkUserInDatabase, doUserLogin, doUserSignUp } from './authSaga'
 
 export function* watcherSaga(){
+    
     yield takeLatest(handleUserSignup.type,doUserSignUp)
+    yield takeLatest(handleLogin.type,doUserLogin)
 }
